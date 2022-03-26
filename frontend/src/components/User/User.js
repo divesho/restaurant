@@ -5,7 +5,7 @@ import config from './../../config';
 import Chip from '@material-ui/core/Chip';
 import Grid from '@material-ui/core/Grid';
 import CustomCheckbox from '../Common/CustomCheckbox';
-import { green } from '@material-ui/core/colors';
+import { green, red } from '@material-ui/core/colors';
 import Paper from '@material-ui/core/Paper';
 import WOW from 'wowjs';
 
@@ -20,6 +20,7 @@ class User extends Component {
             menu: {},
             category: '',
             veg: false,
+            nonveg: false,
             available: false
         }
         this.wow = null;
@@ -80,9 +81,13 @@ class User extends Component {
                 <Paper square xs={12} className="header">
                     <h3 className="title">Welcome to Rasta Cafe</h3>
                 </Paper>
-                <Grid container direction="row" className="menu-actions wow fadeInUp" data-wow-delay="0.03s">
+                <Grid container direction="row" className="menu-actions wow fadeInUp" data-wow-delay="0.01s">
                     <Grid item>
                         <CustomCheckbox name="onlyVeg" label="only veg" checked={this.state.veg} color={green} handleChange={() => this.handleChange('veg')} />
+                    </Grid>
+                    <Grid className="vertical-divider"></Grid>
+                    <Grid item>
+                        <CustomCheckbox name="onlyNonVeg" label="only non-veg" checked={this.state.nonveg} color={red} handleChange={() => this.handleChange('nonveg')} />
                     </Grid>
                     <Grid className="vertical-divider"></Grid>
                     <Grid item>
@@ -92,14 +97,14 @@ class User extends Component {
                 <div className="body">
                     {this.state.errFlag && <h3>{this.state.errorMsg}</h3>}
 
-                    <div className="category-list wow fadeInUp" data-wow-delay="0.03s">
+                    <div className="category-list wow fadeInUp" data-wow-delay="0.02s">
                         {Object.keys(this.state.menu).map(category => {
                             return <Chip className="list-item" color={this.state.category === category ? "primary" : "default"} key={category} label={category} onClick={() => this.handleClick(category)} />
                         })}
                     </div>
 
                     <div className="menu-section">
-                        <div className={"menu-title" + ((Object.keys(this.state.menu).length > 0) ? " wow fadeInUp" : "")}  data-wow-delay="1s">
+                        <div className={"menu-title" + ((Object.keys(this.state.menu).length > 0) ? " wow fadeInUp" : "")}  data-wow-delay="0.03s">
                             <div className="name"><span>Name</span></div>
                             <div className="price full"><span>Full</span></div>
                             <div className="price half"><span>Half</span></div>
@@ -107,12 +112,28 @@ class User extends Component {
                         {Object.keys(this.state.menu).map(category => {
                             return (<div key={category} className={"menu-list " + ((this.state.category === category) ? "active" : "")}>
                                 {this.state.menu[category].filter(menuitem => {
+                                    if(this.state.veg && this.state.nonveg && this.state.available) {
+                                        return menuitem.available === "yes";
+                                    }
+
+                                    if(this.state.veg && this.state.nonveg) {
+                                        return true;
+                                    }
+
                                     if(this.state.veg && this.state.available) {
                                         return (menuitem.foodtype === "veg" && menuitem.available === "yes");
                                     }
 
+                                    if(this.state.nonveg && this.state.available) {
+                                        return (menuitem.foodtype === "nonveg" && menuitem.available === "yes");
+                                    }
+
                                     if(this.state.veg) {
                                         return (menuitem.foodtype === "veg");
+                                    }
+
+                                    if(this.state.nonveg) {
+                                        return (menuitem.foodtype === "nonveg");
                                     }
 
                                     if(this.state.available) {
@@ -121,7 +142,7 @@ class User extends Component {
 
                                     return true;
                                 }).map(obj => {
-                                    return (<div className={"menu-detail wow fadeInUp " + (obj.available === "yes" ? "available" : "")} key={obj.id} data-wow-delay="1s">
+                                    return (<div className={"menu-detail wow fadeInUp " + (obj.available === "yes" ? "available" : "")} key={obj.id} data-wow-delay="0.04s">
                                         <div className="name">
                                             {obj.foodtype === "veg" && <i className="icon veg"></i>}
                                             {obj.foodtype === "nonveg" && <i className="icon nonveg"></i>}                                            

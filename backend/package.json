@@ -1,0 +1,16 @@
+{
+  "name": "banking",
+  "version": "1.0.0",
+  "description": "Simple banking application",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app"
+  },
+  "author": "Divesh Oswal",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "",
+    "express": "^4.15.4",
+    "sqlite3": "^5.0.2"
+  }
+}

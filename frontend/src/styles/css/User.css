@@ -1,0 +1,88 @@
+.user-page {
+  position: relative; }
+  .user-page .header {
+    position: relative;
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+    border-bottom: 1px solid #ebebeb;
+    height: 45px; }
+    .user-page .header h3 {
+      font-size: 20px;
+      color: #e44c2a; }
+  .user-page .menu-actions {
+    display: flex;
+    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: scroll;
+    height: 50px;
+    padding: 10px;
+    border-bottom: 1px solid #ebebeb;
+    overflow-y: hidden; }
+    .user-page .menu-actions .MuiFormControlLabel-root {
+      margin-right: 0; }
+    .user-page .menu-actions .PrivateSwitchBase-root-4 {
+      padding: 3px 9px; }
+    .user-page .menu-actions .vertical-divider {
+      position: relative;
+      border-left: 1px solid #ebebeb;
+      height: 30px;
+      margin: 0 10px; }
+  .user-page .body {
+    position: relative;
+    margin: 10px 0; }
+    .user-page .body .category-list {
+      display: flex;
+      flex-wrap: nowrap;
+      white-space: nowrap;
+      overflow-x: scroll;
+      padding: 0 10px;
+      height: 40px; }
+      .user-page .body .category-list .list-item {
+        margin-right: 8px;
+        font-size: 14px;
+        cursor: pointer; }
+    .user-page .body .menu-section {
+      text-transform: capitalize;
+      position: relative;
+      font-size: 14px;
+      margin-top: 15px;
+      padding: 0 10px; }
+      .user-page .body .menu-section .menu-title {
+        display: flex;
+        padding-bottom: 5px;
+        text-align: start;
+        color: #e44c2a;
+        font-size: 16px;
+        font-weight: 600; }
+        .user-page .body .menu-section .menu-title .name {
+          flex-basis: 66%; }
+        .user-page .body .menu-section .menu-title .price {
+          flex-basis: 17%; }
+      .user-page .body .menu-section .menu-list {
+        display: none; }
+        .user-page .body .menu-section .menu-list.active {
+          display: block; }
+        .user-page .body .menu-section .menu-list .menu-detail {
+          display: flex;
+          margin-top: 15px;
+          color: gray; }
+          .user-page .body .menu-section .menu-list .menu-detail.available {
+            color: #000; }
+          .user-page .body .menu-section .menu-list .menu-detail .name {
+            flex-basis: 66%;
+            position: relative;
+            font-weight: 700; }
+            .user-page .body .menu-section .menu-list .menu-detail .name .icon {
+              position: absolute; }
+            .user-page .body .menu-section .menu-list .menu-detail .name span {
+              background: #fff;
+              z-index: 10;
+              position: relative;
+              margin-left: 22px; }
+            .user-page .body .menu-section .menu-list .menu-detail .name .short-description {
+              font-size: 12px;
+              font-weight: 500;
+              margin-top: 5px; }
+          .user-page .body .menu-section .menu-list .menu-detail .price {
+            flex-basis: 17%; }

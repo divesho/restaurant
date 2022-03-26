@@ -1,0 +1,93 @@
+@mixin foodType($color) {
+    border-color: $color;
+
+    &::after {
+        background-color: $color;
+    }
+}
+
+.icon {
+    &.veg,&.nonveg {
+        display: inline-block;
+        width: 16px;
+        height: 16px;
+        border: 2px solid;
+        position: relative;
+
+        &::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            top: 2px;
+            left: 2px;
+            border-radius: 50%;
+            position: absolute;
+        }
+    }
+
+    &.nonveg {
+        @include foodType(red);
+    }
+
+    &.veg {
+        @include foodType(green);
+    }
+}
+
+.data-table {
+    .title-section {
+        padding: 10px;
+
+        .title {
+            flex-grow: 1;
+        }
+    }
+
+    .btns {
+        padding: 10px;
+        margin: 0;
+        min-width: auto;
+        border-radius: 50%;
+
+        &.upload-btn {
+            margin-right: 10px;
+        }
+    }
+}
+
+.form {
+    .form-field-title {
+        font-size: 16px;
+        font-weight: 700;
+        color: #3f51b5;
+    }
+
+    .form-group {
+        margin-top: 10px;
+
+        .form-field {
+            width: 250px;
+        }
+    }
+
+    .message {
+        margin-top: 15px;
+        font-size: 16px;
+        font-weight: 600;
+
+        &.error, &.red {
+            color: red;
+        }
+
+        &.success, &.green {
+            color: green;
+        }
+    }
+
+    .edit-menu {
+        .label {
+            display: inline-block;
+            width: 150px;
+        }
+    }
+}

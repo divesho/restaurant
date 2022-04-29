@@ -29,7 +29,7 @@ process.on('uncaughtException', (err) => {
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static("build"));
 
 app.use("/", routes);
 

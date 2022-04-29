@@ -1,6 +1,6 @@
 var config = {
     serverConfig : {
-        port : 80
+        port : 86
     },
     admin: { name: 'divesh', password: '1234' }
 };

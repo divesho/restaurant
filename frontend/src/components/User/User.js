@@ -79,7 +79,7 @@ class User extends Component {
         return (
             <div className="user-page">
                 <Paper square xs={12} className="header">
-                    <h3 className="title">Welcome to Rasta Cafe</h3>
+                    <h3 className="title">Hotel Same Place</h3>
                 </Paper>
                 <Grid container direction="row" className="menu-actions wow fadeInUp" data-wow-delay="0.01s">
                     <Grid item>

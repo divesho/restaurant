@@ -28,7 +28,7 @@ const Admin = (props) => {
             <AppBar position="static">
                 <Toolbar>
                     <Typography variant="h6" className="title">
-                        Admin Page | Rasta Cafe
+                        Admin Page | Hotel Same Place
                     </Typography>
                     <Button color="inherit" onClick={handleLogout}>Logout</Button>
                 </Toolbar>

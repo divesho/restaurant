@@ -2,9 +2,14 @@ var express = require('express');
 var router = express.Router();
 var repository = require('./repository.js').repository;
 var config = require('./../config');
+var path = require('path');
 
 router.get('/', (req, res) => {
     res.status(200).send("welcome to restaurants!");
+});
+
+router.get('/admin', (req, res) => {
+    res.status(200).sendFile(path.resolve(__dirname + '/../build/index.html'));
 });
 
 router.post('/login', (req, res) => {
